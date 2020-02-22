@@ -1,1 +1,16 @@
-<p>groups works!</p>
+<head>
+  <script src="~/Scripts/angular.js"></script>
+</head>
+<form ng-submit="submitStudentForm()" >
+  <label for="firstName" >Search for anything: groups, people, activity </label><br />
+  <input type="text" id="firstName" ng-model="student.firstName" />
+  <input type="submit" value="Search" />
+  <input type="reset" ng-click="resetForm()" value="Reset" />
+
+  <br/>
+  <span>Subjects</span><br />
+  <label><input type="checkbox" ng-model="student.edu" />Education</label>
+  <label><input type="checkbox" ng-model="student.env" />Environment</label>
+  <label><input type="checkbox"  ng-model="student.nat" />Nature</label><br />
+
+</form>
