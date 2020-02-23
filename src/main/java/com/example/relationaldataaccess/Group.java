@@ -4,15 +4,20 @@ import java.util.ArrayList;
 public class Group {
     private long id;
     private String Name;
-    private enum Tag{
-        Environment, Coding, Innovative, Leadership, PublicSpeaking
-    }
 
-    private ArrayList<Tag> tag = new ArrayList<Tag>();
+    private ArrayList<String> tag = new ArrayList<String>();
 
-    public Group(long id, String name, ArrayList<Tag> tag) {
+    public Group(long id, String name, ArrayList<String> tag) {
         this.id = id;
         Name = name;
+        this.tag = tag;
+    }
+
+    public ArrayList<String> getTag() {
+        return tag;
+    }
+
+    public void setTag(ArrayList<String> tag) {
         this.tag = tag;
     }
 
@@ -31,14 +36,4 @@ public class Group {
     public void setName(String name) {
         Name = name;
     }
-
-    public ArrayList<Tag> getTag() {
-        return tag;
-    }
-
-    public void setTag(ArrayList<Tag> tag) {
-        this.tag = tag;
-    }
-
-    // getters & setters omitted for brevity
 }
