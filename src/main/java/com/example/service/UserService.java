@@ -25,15 +25,15 @@ public class UserService {
 
     public HashMap<User, ArrayList<Tag>> findUserInterests(User user){
         ArrayList<Group> groups = user.groupsEnrolled;
-        ArrayList<Tag> tags = new ArrayList<Tag>;
+        ArrayList<com.example.relationaldataaccess.Tag> tags = new ArrayList<com.example.relationaldataaccess.Tag>();
 
-        for(int i=0, i<groups.size(), i++){
-            tags.addALL(groups.get(i).tags)
+        for(int i=0; i<groups.size(); i++){
+            tags.addALL(groups.get(i).tags);
         }
 
-        System.out.println(tags)
+        System.out.println(tags);
 
-        HashMap<User, ArrayList<Tag>> userProfile = new HashMap<String, ArrayList<Tag>>();
+        HashMap<User, ArrayList<com.example.relationaldataaccess.Tag>> userProfile = new HashMap<String, ArrayList<com.example.relationaldataaccess.Tag>>();
         return userProfile;
     }
 }
