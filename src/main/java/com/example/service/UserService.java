@@ -1,59 +1,60 @@
-// package com.example.service;
+package com.example.service;
 
-// import com.example.relationaldataaccess.User;
+import java.sql.Types;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.jdbc.core.JdbcTemplate;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.RequestParam;
-// import org.springframework.web.bind.annotation.RestController;
+import com.example.relationaldataaccess.User;
 
-// import java.sql.Types;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 
-// @RestController
-// public class UserService {
+@Service
+public class UserService {
 
-//     @Autowired
-//     JdbcTemplate jdbc;
+    @Autowired
+    JdbcTemplate jdbc;
 
-//     @RequestMapping("/getUserByID")
-//     public User findByUserID(String emailId) {
-// //        String sql = "Select e from " + User.class.getName() + " e "
-// //                + " Where e.userName = :userName ";
-// //
-// //        Query query = entityManager.createQuery(sql, User.class);
-// //        query.setParameter("username", username);
-//         return null;
-//     }
+    public UserService(){
+    }
 
-//     @RequestMapping("/insertUser")
-//     public int insertUser(@RequestParam("emailId") String emailId, @RequestParam("name") String name, @RequestParam("age") int age){
-//         String sql =    "INSERT INTO user(" + 
-//                         "emailId," +
-//                         "name," + 
-//                         "age" + 
-//                         ")" + "VALUES(?, ?, ?)";
+    public User getUserByID(String emailId) {
+        String sql = "SELECT * FROM users WHERE emailId = ?";
 
-//         int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.INTEGER};
+        if(jdbc == null){
+            System.out.println("YES");
+        }
 
-//         Object[] params = new Object[] { emailId, name, age};
+        User user = (User) jdbc.queryForObject(sql, new Object[] { emailId },
+                new BeanPropertyRowMapper<>(User.class));
 
-//         int row = jdbc.update(sql, params, types);
-//         System.out.println(row + " row inserted.");
-//         return 0;
-//     }
+        return user;
+    }
 
-//     // public HashMap<User, ArrayList<Tag>> findUserInterests(User user){
-//     //     ArrayList<Group> groups = user.groupsEnrolled;
-//     //     ArrayList<com.example.relationaldataaccess.Tag> tags = new ArrayList<com.example.relationaldataaccess.Tag>();
+    public int insetUser(String emailId, String name, int age) {
+        final String sql = "INSERT INTO users(" + "emailId," + "name," + "age" + ")" + "VALUES(?, ?, ?)";
 
-//     //     for(int i=0; i<groups.size(); i++){
-//     //         tags.addALL(groups.get(i).tags);
-//     //     }
+        final int[] types = new int[] { Types.VARCHAR, Types.VARCHAR, Types.INTEGER };
 
-//     //     System.out.println(tags);
+        final Object[] params = new Object[] { emailId, name, age };
 
-//     //     HashMap<User, ArrayList<com.example.relationaldataaccess.Tag>> userProfile = new HashMap<String, ArrayList<com.example.relationaldataaccess.Tag>>();
-//     //     return userProfile;
-//     // }
-// }
+        final int row = jdbc.update(sql, params, types);
+        System.out.println(row + " user inserted.");
+
+        return 0;
+    }
+
+    // public HashMap<User, ArrayList<Tag>> findUserInterests(User user){
+    //     ArrayList<Group> groups = user.groupsEnrolled;
+    //     ArrayList<com.example.relationaldataaccess.Tag> tags = new ArrayList<com.example.relationaldataaccess.Tag>();
+
+    //     for(int i=0; i<groups.size(); i++){
+    //         tags.addALL(groups.get(i).tags);
+    //     }
+
+    //     System.out.println(tags);
+
+    //     HashMap<User, ArrayList<com.example.relationaldataaccess.Tag>> userProfile = new HashMap<String, ArrayList<com.example.relationaldataaccess.Tag>>();
+    //     return userProfile;
+    // }
+}

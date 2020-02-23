@@ -1,25 +1,24 @@
 package com.example.relationaldataaccess;
-import java.util.ArrayList;
 
+public class UserEvent {
 
-public class UserEvent extends Event{
-    enum ValidationStatus{
-        Average,Outstanding,Attended
-    }
-    private ValidationStatus status;
+    private long id;
+    private Boolean status; // ValidationStatus 0 = not verified, 1 = verified
     private String validationString;
+    private int hours;
 
-    public UserEvent(long id, String name, long groupId, String startDateTime, String location, double noOfHours,com.example.relationaldataaccess.UserEvent.ValidationStatus status, String validationString) {
-        super(id,name,groupId,startDateTime,location,noOfHours);
+    public UserEvent(long id, Boolean status, String validationString, int hours) {
+        this.id = id;
         this.status = status;
         this.validationString = validationString;
+        this.hours = hours;
     }
 
-    public com.example.relationaldataaccess.UserEvent.ValidationStatus getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(com.example.relationaldataaccess.UserEvent.ValidationStatus status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 
@@ -30,4 +29,21 @@ public class UserEvent extends Event{
     public void setValidationString(String validationString) {
         this.validationString = validationString;
     }
+
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
 }
