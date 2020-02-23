@@ -19,6 +19,7 @@ import { ChartsModule } from 'ng2-charts';
 import { PieChartComponent } from './pieChart/pieChart';
 import { ListEventsComponent } from './list-events/list-events.component';
 import {MatListModule} from '@angular/material/list';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {MatListModule} from '@angular/material/list';
     FormsModule,
     HttpClientModule,
     ChartsModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
