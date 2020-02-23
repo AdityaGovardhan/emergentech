@@ -5,4 +5,5 @@ export const EVENTS = {
     A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally\
     bred for hunting.",
     event_registered: true,
+    event_id:"123456788"
 };
