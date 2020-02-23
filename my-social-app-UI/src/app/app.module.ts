@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -32,7 +33,7 @@ import {DemoMaterialModule} from './material-module';
     ReactiveFormsModule,
     MatNativeDateModule,
     FormsModule,
-    
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
