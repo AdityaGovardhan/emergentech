@@ -11,6 +11,10 @@ public class User {
     private ArrayList<User> following= new ArrayList<User>();
     private ArrayList<User> followers= new ArrayList<User>();
 
+    public User(){
+
+    }
+    
     public User(String emailId, String name, int age) {
         this.emailId = emailId;
         Name = name;
