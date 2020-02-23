@@ -15,6 +15,10 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
+import { PieChartComponent } from './pieChart/pieChart';
+import { ListEventsComponent } from './list-events/list-events.component';
+import {MatListModule} from '@angular/material/list';
 
 
 @NgModule({
@@ -23,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardComponent,
     GroupsComponent,
     EventsComponent,
+    PieChartComponent,
+    ListEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     FormsModule,
     HttpClientModule,
+    ChartsModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
