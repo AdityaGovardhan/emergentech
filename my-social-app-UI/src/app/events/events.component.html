@@ -11,17 +11,17 @@
                 <p>{{event_description}}</p>
             </mat-card-content>
 
-                <form class="example-form" ng-show="is_validated()">
+                <form class="example-form" #f="ngForm" (ngSubmit)="validate(f)" ng-hide="is_validated()">
                     <div layout-gt-sm="row">
                         
-                        <mat-form-field appearance="outline" class="md-block" flex-gt-sm>
+                        <mat-form-field appearance="outline" class="md-block form-field" flex-gt-sm novalidate>
                             <mat-label>Earn Credits</mat-label>
-                            <input matInput ng-model="event.credits">
+                            <input name="credits" matInput ngModel>
                         </mat-form-field>
 
                     </div>
 
-                    <mat-card-actions class="d-flex justify-content-center">
+                    <mat-card-actions class="d-flex justify-content-center form-field">
                         <button mat-raised-button (click)="validate" color="primary">Validate</button>
                     </mat-card-actions>
                             
