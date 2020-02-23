@@ -27,6 +27,9 @@ export class DashboardComponent implements OnInit {
     //this.getUserInfo()
     
   }
+  changeTabView(elem):void{
+    alert("sdfsd")
+  }
 
   getUserInfo(){
     this.userService.getUser(1)
