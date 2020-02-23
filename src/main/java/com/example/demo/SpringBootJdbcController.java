@@ -16,11 +16,21 @@ public class SpringBootJdbcController {
     @Autowired
     JdbcTemplate jdbc;
     
-    @RequestMapping("/insert")
+    @RequestMapping("/createTables")
     public String index(){
         jdbc.execute("DROP TABLE IF EXISTS user;");
 
         jdbc.execute("CREATE TABLE user(emailId VARCHAR(100) PRIMARY KEY NOT NULL, name VARCHAR(100), age INT);");
+
+        jdbc.execute("CREATE TABLE event(Id INT PRIMARY KEY NOT NULL, name VARCHAR(100), groupId INT, startDate VARCHAR(100)), location VARCHAR(100), noOfHours INT;")
+
+        jdbc.execute("CREATE TABLE group(Id INT PRIMARY KEY NOT NULL, name VARCHAR(100), tag VARCHAR(100), noOfHours INT;")
+
+        jdbc.execute("CREATE TABLE userEvents(emailId VARCHAR(100) NOT NULL, eventId INT, validationStatus VARCHAR(100), validationText VARCHAR(100));");
+
+        jdbc.execute("CREATE TABLE userGroups(emailId VARCHAR(100) NOT NULL, groupId INT);");
+
+
 
         // jdbc.execute("insert into user(name,email) values('javatpoint','java@javatpoint.com')");
 

@@ -5,10 +5,15 @@ public class User {
     private String emailId;
     private String Name;
     private int age;
+
     private ArrayList<Group> groupsEnrolled = new ArrayList<Group>();
+
     private ArrayList<UserEvent> eventsEnrolled = new ArrayList<UserEvent>();
+
     private ArrayList<Event> eventsUpcoming= new ArrayList<Event>();
+
     private ArrayList<User> following= new ArrayList<User>();
+
     private ArrayList<User> followers= new ArrayList<User>();
 
     public User(){
