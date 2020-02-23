@@ -1,0 +1,8 @@
+<h6>Timeline activities</h6>
+<mat-nav-list>
+	<mat-list-item *ngFor="let event of events">
+        <a matLine href="">{{ event.name }}</a>
+		<p>{{event.status}}</p>
+	</mat-list-item>
+</mat-nav-list>
+  
