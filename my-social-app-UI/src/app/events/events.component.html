@@ -1,1 +1,35 @@
-<p>events works!</p>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons&display=block" rel="stylesheet">
+<div>
+    <div class="mat-app-background basic-container d-flex justify-content-center">
+        <mat-card class="event-card card-style">
+            <mat-card-header>
+                <div mat-card-avatar class="event-header-image"></div>
+            </mat-card-header>
+            <img src={{event_pic}} alt="event_pic" width="100%">
+            <h1>{{event_name}}</h1>
+            <mat-card-content>
+                <p>{{event_description}}</p>
+            </mat-card-content>
+
+                <form class="example-form" ng-show="is_validated()">
+                    <div layout-gt-sm="row">
+                        
+                        <mat-form-field appearance="outline" class="md-block" flex-gt-sm>
+                            <mat-label>Earn Credits</mat-label>
+                            <input matInput ng-model="event.credits">
+                        </mat-form-field>
+
+                    </div>
+
+                    <mat-card-actions class="d-flex justify-content-center">
+                        <button mat-raised-button (click)="validate" color="primary">Validate</button>
+                    </mat-card-actions>
+                            
+                </form>
+            
+            
+
+        </mat-card>
+    </div>
+
+</div>

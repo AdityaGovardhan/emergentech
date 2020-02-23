@@ -1,0 +1,33 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+.event-card {
+    width: 800px;
+}
+.validation_container{
+  width: 800px;
+}
+
+.mat-card-image{
+    max-height: 200px;
+}
+
+.basic-container{
+  padding: 30px;
+  margin: 10px;
+}
+
+.card-style{
+  margin:2em;
+  padding-top:0;
+  padding-left:0;
+  padding-right:0
+}
+  
+.event-header-image {
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
+}
+
+.basic-container {
+  padding: 30px;
+  width: auto
+}

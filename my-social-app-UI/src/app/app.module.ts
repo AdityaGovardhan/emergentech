@@ -8,21 +8,35 @@ import { GroupsComponent } from './groups/groups.component';
 import { EventsComponent } from './events/events.component';
 import { LayoutComponent } from './UI/layout/layout.component';
 import { HeaderComponent } from './UI/header/header.component';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import { UiModule} from './UI/UI.module';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {DemoMaterialModule} from './material-module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     GroupsComponent,
-    EventsComponent
+    EventsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UiModule
+    UiModule,
+    DemoMaterialModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+platformBrowserDynamic().bootstrapModule(AppModule)
+  .catch(err => console.error(err));
