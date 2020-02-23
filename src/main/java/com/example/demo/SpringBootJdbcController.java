@@ -66,9 +66,9 @@ public class SpringBootJdbcController {
         user.setGroupsEnrolled(groupServicegetListOfGroups(emailId));
         String tags = groupService.getTags(user.setGroupsEnrolled());
 
-        user.setEventsEnrolled(eventService.getUser(emailId))
+        user.setEventsEnrolled(eventService.getUserEvents(emailId))
 
-        Set<String> =(Set) (Arrays.asListtags.split(","));
+        user.setInterests((Set) (Arrays.asList(tags.split(","))));
 
         return user;
     }

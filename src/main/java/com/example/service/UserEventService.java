@@ -22,7 +22,11 @@ public class UserEventService{
         List<Long> userEvents = jdbc.query(sql,
                 new BeanPropertyRowMapper<>(Long.class));
 
-        return userEvents;
+        ArrayList<Group> events = new ArrayList<Event>();
+        for (int i=0;i<userEvents.size();i++){
+            events.add(this.getEventByID(userEvents.get(i)))
+        }
+        return events;
     }
 
     public List<String> getEventUsers(long eventId){
