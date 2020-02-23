@@ -1,6 +1,6 @@
 package com.example.service;
 
-import com.example.relationaldataaccess.UserEvent;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -16,14 +16,22 @@ public class UserEventService{
     public UserEventService(){
     }
 
-    public UserEvent getUserEventByID(String userEventId, String emailId){
-        String sql = "SELECT * FROM userEvents WHERE eventId = ? and userId = ?";
+    public List<Long> getUserEvents(String emailId){
+        String sql = "SELECT eventId FROM userEvents WHERE userId = " + emailId;
 
-        UserEvent userEvent = (UserEvent) jdbc.queryForObject(sql,
-            new Object[] { userEventId, emailId },
-                new BeanPropertyRowMapper<>(UserEvent.class));
+        List<Long> userEvents = jdbc.query(sql,
+                new BeanPropertyRowMapper<>(Long.class));
 
-        return userEvent;
+        return userEvents;
+    }
+
+    public List<String> getEventUsers(long eventId){
+        String sql = "SELECT userId FROM userEvents WHERE eventId = " + eventId;
+
+        List<String> eventUsers = jdbc.query(sql,
+                new BeanPropertyRowMapper<>(String.class));
+
+        return eventUsers;
     }
 
     public int validateUser(String userEventId, String emailId){

@@ -2,6 +2,8 @@ package com.example.service;
 
 import java.sql.Types;
 
+import com.example.relationaldataaccess.Event;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,14 @@ public class EventService{
     JdbcTemplate jdbc;
 
     public EventService(){
+    }
+
+    public Event getEventByID(long eventId){
+        final String sql = "GET * FROM events where eventId = ?";
+
+        Event event = jdbc.queryForObject(sql, new Object[]{eventId}, Event.class);
+        
+        return event;
     }
 
     public int insertEvent(long id, String name, long groupId, String startDateTime, String location, double noOfHours){

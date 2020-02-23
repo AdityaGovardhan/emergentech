@@ -44,7 +44,7 @@ public class SpringBootJdbcController {
         jdbc.execute("CREATE TABLE groups(Id INT PRIMARY KEY NOT NULL, name VARCHAR(100), tag VARCHAR(100));");
 
         jdbc.execute("DROP TABLE IF EXISTS userEvents;");
-        jdbc.execute("CREATE TABLE userEvents(emailId VARCHAR(100) NOT NULL, eventId INT, status INT, validationText VARCHAR(100));");
+        jdbc.execute("CREATE TABLE userEvents(emailId VARCHAR(100) NOT NULL, eventId INT, status INT, validationString VARCHAR(100), noOfHours INT);");
 
         jdbc.execute("DROP TABLE IF EXISTS userGroups;");
         jdbc.execute("CREATE TABLE userGroups(emailId VARCHAR(100) NOT NULL, groupId INT);");
