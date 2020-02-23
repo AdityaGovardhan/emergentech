@@ -1,9 +1,9 @@
 <h6>Timeline activities</h6>
-<mat-grid-list cols="1" rowHeight="2:1">
-    <mat-card (click)="goToEvent()" *ngFor="let event of events" style="padding:'20px';margin-bottom: '30px'">
+<div>
+    <mat-card class="event-card" *ngFor="let event of events" style="padding:'20px';margin-bottom: '30px'">
 		<mat-card-header>
 			<mat-card-title-group>
-				<mat-card-title>{{event.name}}</mat-card-title>
+				<mat-card-title (click)="goToEvent()">{{event.name}}</mat-card-title>
 				<mat-card-subtitle>Location: {{event.location}}</mat-card-subtitle>
 				<mat-card-subtitle>{{event.date}}</mat-card-subtitle>
 				<mat-card-subtitle>Duration: {{event.hours}}</mat-card-subtitle>
@@ -16,5 +16,5 @@
 			<mat-card-subtitle>Status: {{event.status}}</mat-card-subtitle>
 		</mat-card-footer>
 	</mat-card>
-</mat-grid-list>
+<div>
   

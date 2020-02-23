@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list-events',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ListEventsComponent implements OnInit {
 
   constructor() { }
+
+  @Output() public found = new EventEmitter<any>();
 
   ngOnInit(): void {
   }
@@ -32,4 +35,10 @@ export class ListEventsComponent implements OnInit {
       status:"verified"
     },
   ]
+
+  goToEvent(f) : void{
+      var target_event = self.event.target.textContent;
+      var user_id = "John";
+      this.found.emit({'user': user_id, 'event': target_event});
+  }
 }
