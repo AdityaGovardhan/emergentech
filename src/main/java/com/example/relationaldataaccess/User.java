@@ -16,6 +16,8 @@ public class User {
 
     private ArrayList<User> followers= new ArrayList<User>();
 
+    private Set<String> interests = new Set<String>();
+
     public User(){
 
     }
@@ -99,6 +101,14 @@ public class User {
 
     public void setFollowers(ArrayList<User> followers) {
         this.followers = followers;
+    }
+
+    public Set<String> getInterests() {
+        return interests;
+    }
+
+    public void setInterests(Set<String> interests) {
+        this.interests = interests;
     }
 
     // getters & setters omitted for brevity

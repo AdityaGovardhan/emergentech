@@ -1,5 +1,4 @@
 package com.example.relationaldataaccess;
-import java.util.ArrayList;
 
 public class Event {
     private long id;
